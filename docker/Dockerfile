@@ -57,6 +57,6 @@ RUN export CUDA_VISIBLE_DEVICES=1
 RUN export NVIDIA_VISIBLE_DEVICES=all
 RUN export NVIDIA_DRIVER_CAPABILITIES=all
 
-COPY . /app
+COPY .. /app
 EXPOSE 5000
 CMD [ "python3", "app.py" ]
