@@ -18,20 +18,20 @@ def get_embed(graph):
         model = Net().to(device)
         model.load_state_dict(torch.load('model.pt', map_location=torch.device('cpu')))
 
-#         graph = ast.literal_eval(graph)
-#         get_attributes(graph)
-#         node_feats, edge_index = get_attributes(graph)
+        graph = ast.literal_eval(graph)
+        get_attributes(graph)
+        node_feats, edge_index = get_attributes(graph)
 
-#         edge_index = torch.LongTensor(edge_index)
-#         node_feats = torch.LongTensor(node_feats)
-#         y = torch.FloatTensor([1])
+        edge_index = torch.LongTensor(edge_index)
+        node_feats = torch.LongTensor(node_feats)
+        y = torch.FloatTensor([1])
 
-#         data = Data(x=node_feats, edge_index=edge_index, y=y, graph=None, batch=torch.zeros_like(node_feats)).to(device)
+        data = Data(x=node_feats, edge_index=edge_index, y=y, graph=None, batch=torch.zeros_like(node_feats)).to(device)
 
-#         output, embed = model(data)
-#         my_json_string = json.dumps({'Name': 'PMP_0009', 'Edges': embed.data.cpu().numpy()})
+        output, embed = model(data)
+        my_json_string = json.dumps({'Name': 'PMP_0009', 'latent': embed.data.cpu().numpy().tolist()})
 
-        return 0 #my_json_string #str(embed.data.cpu().numpy())
+        return my_json_string #str(embed.data.cpu().numpy()) #
     except Exception  as ex:
     	return traceback.print_exc()
 

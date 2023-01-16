@@ -59,6 +59,9 @@ RUN export NVIDIA_DRIVER_CAPABILITIES=all
 
 #COPY .. /app
 COPY app.py /app
+COPY utils.py /app
+COPY network.py /app
+COPY model.pt /app
 
 EXPOSE 5000
 CMD [ "python3", "app.py" ]
