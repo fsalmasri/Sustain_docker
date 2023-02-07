@@ -35,6 +35,7 @@ def nodes_names_remapping(g):
         "sipConnector": 29,
         "bottle": 30,
         "mechanicDisconnector": 31,
+        "Add_W": 32
 
     }
 
@@ -82,6 +83,8 @@ def nodes_names_remapping(g):
             node_feats.append(nodes_embed['mechanicDisconnector'])
         elif 'Z' in node:
             node_feats.append(nodes_embed['lConnector'])
+        elif 'W' in node:
+            node_feats.append(nodes_embed['Add_W'])
 
         else:
             print('Error', node)
